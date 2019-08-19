@@ -145,7 +145,7 @@ $(function() {
 
             getMetrics.done(function(response) {
               console.log(response);
-              download(JSON.stringify(response), 'metrics_report.txt', 'text/plain');
+              download(JSON.stringify(response), 'metrics_report.json', 'application/json');
             });
 
             getMetrics.fail(function(jqXHR, textStatus) {
