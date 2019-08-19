@@ -1,0 +1,69 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+
+.column {
+    display: inline-block;
+    float: left;
+}
+
+.fields {
+    text-align: right;
+    display: inline-block;
+    padding-left: 5.4em;
+}
+
+.label {
+    font-weight: bold;
+}
+
+#ui-datepicker-div {
+    padding: 1em;
+    cursor: pointer;
+    background: aliceblue;
+    display: none;
+}
+
+.ui-datepicker-title {
+    text-align: center;
+    margin-bottom: 0.3em;
+    float: none;
+    width: 100%;
+    display: block;
+    clear: both;
+}
+
+.ui-datepicker-prev {
+    text-decoration: none;
+    border-radius: 0.3em;
+    padding: 0.2em;
+    float: left;
+}
+
+.ui-datepicker-next {
+    text-decoration: none;
+    border-radius: 0.3em;
+    padding: 0.2em;
+    float: right;
+}
+
+.actions {
+    float: none;
+    clear: both;
+}
+
+#submit {
+    margin-top: 1em;
+    font-size: 1.2em;
+    padding: 0.3em 0.7em;
+    border-radius: 0.2em;
+    background-color: rgb(235, 167, 198);
+    cursor: pointer;
+    border: none;
+}

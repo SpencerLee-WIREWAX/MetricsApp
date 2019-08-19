@@ -1,0 +1,137 @@
+<!DOCTYPE html5>
+<html>
+    <head>
+        <title>Wirewax Metrics App</title>
+        <link rel="stylesheet" href="./stylesheets/style.css"/>
+    </head>
+    <body>
+        <h1>Generate Metrics Report</h1>
+        <form id="theform" name="build_body" method="post">
+            <div class="column" id="column1">
+                <div class="input"><span class="label">Video Id:&nbsp;</span>
+                    <input type="text" name="videoId" required="required"/>
+                </div>
+
+                <div class="label">Fields: <br /></div>
+                    <div class="formGroup fields">
+                        <div class="input"><span class="label">browser:&nbsp;</span>
+                            <input type="checkbox" name="browser" value="true" checked="checked"/>
+                        </div>
+                        <div class="input"><span class="label">startedPlaying:&nbsp;</span>
+                            <input type="checkbox" name="startedPlaying" value="true" checked="checked"/>
+                        </div>
+                        <div class="input"><span class="label">interactions:&nbsp;</span>
+                            <input type="checkbox" name="interactions" value="true" checked="checked"/>
+                        </div>
+                        <div class="input"><span class="label">embedLoc:&nbsp;</span>
+                            <input type="checkbox" name="embedLoc" value="true" checked="checked"/>
+                        </div>
+                        <div class="input"><span class="label">activeViews:&nbsp;</span>
+                            <input type="checkbox" name="activeViews" value="true" checked="checked"/>
+                        </div>
+                        <div class="input"><span class="label">viewers:&nbsp;</span>
+                            <input type="checkbox" name="viewers" value="true" checked="checked"/>
+                        </div>
+                        <div class="input"><span class="label">isFirstView:&nbsp;</span>
+                            <input type="checkbox" name="isFirstView" value="true" checked="checked"/>
+                        </div>
+                        <div class="input"><span class="label">isFirstActive:&nbsp;</span>
+                            <input type="checkbox" name="isFirstActive" value="true" checked="checked"/>
+                        </div>
+                        <div class="input"><span class="label">widgets:&nbsp;</span>
+                            <input type="checkbox" name="widgets" value="true" checked="checked"/>
+                        </div>
+                        <div class="input"><span class="label">maxTime:&nbsp;</span>
+                            <input type="checkbox" name="maxTime" value="true" checked="checked"/>
+                        </div>
+                        <div class="input"><span class="label">vidId:&nbsp;</span>
+                            <input type="checkbox" name="vidId" value="true" checked="checked"/>
+                        </div>
+                        <div class="input"><span class="label">maxWhen:&nbsp;</span>
+                            <input type="checkbox" name="maxWhen" value="true" checked="checked"/>
+                        </div>
+                        <div class="input"><span class="label">playWhen:&nbsp;</span>
+                            <input type="checkbox" name="playWhen" value="true" checked="checked"/>
+                        </div>
+                        <div class="input"><span class="label">device:&nbsp;</span>
+                            <input type="checkbox" name="device" value="true" checked="checked"/>
+                        </div><br />
+                    </div>
+                    <div class="formGroup">
+                        <div class="input"><span class="label">Limit:&nbsp;</span>
+                            <input type="number" name="limit" min="-1" value="-1" onkeyup="imposeMinMax(this)"/>
+                        </div>
+                        <div class="input"><span class="label">blockWwx:&nbsp;</span>
+                            <select name="blockWwx">
+                                <option>false</option>
+                                <option>true</option>
+                            </select>
+                        </div>
+                        <div class="input"><span class="label">ignoreEmbed:&nbsp;</span>
+                            <select name="ignoreEmbed">
+                                <option>false</option>
+                                <option>true</option>
+                            </select>
+                        </div><br /><span class="label">Between dates (optional):</span>
+                        <div class="input"><span class="label">Start date:&nbsp;</span>
+                            <input id="startdatepicker" type="text" name="startDate" autoComplete="off"/><span class="label">End date:&nbsp;</span>
+                            <input id="enddatepicker" type="text" name="endDate" autoComplete="off"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="column" id="column2">
+                    <div class="input"><span class="label">Sort by:&nbsp;</span>
+                        <select name="segmentBy">
+                            <option>don't sort</option>
+                            <option>embedLoc</option>
+                            <option>browser</option>
+                            <option>device</option>
+                        </select>
+                    </div>
+                    <div class="label">Services: <br /></div>
+                        <div class="formGroup fields">
+                            <div class="input"><span class="label">views:&nbsp;</span>
+                                <input type="checkbox" name="views_service" value="true" checked="checked"/>
+                            </div>
+                            <div class="input"><span class="label">impressions:&nbsp;</span>
+                                <input type="checkbox" name="impressions_service" value="true" checked="checked"/>
+                            </div>
+                            <div class="input"><span class="label">mobileVsDesktop:&nbsp;</span>
+                                <input type="checkbox" name="mobileVsDesktop_service" value="true" checked="checked"/>
+                            </div>
+                            <div class="input"><span class="label">devices:&nbsp;</span>
+                                <input type="checkbox" name="devices_service" value="true" checked="checked"/>
+                            </div>
+                            <div class="input"><span class="label">activeViews:&nbsp;</span>
+                                <input type="checkbox" name="activeViews_service" value="true" checked="checked"/>
+                            </div>
+                            <div class="input"><span class="label">interactions:&nbsp;</span>
+                                <input type="checkbox" name="interactions_service" value="true" checked="checked"/>
+                            </div>
+                            <div class="input"><span class="label">viewers:&nbsp;</span>
+                                <input type="checkbox" name="viewers_service" value="true" checked="checked"/>
+                            </div>
+                            <div class="input"><span class="label">retention:&nbsp;</span>
+                                <input type="checkbox" name="retention_service" value="true" checked="checked"/>
+                            </div>
+                            <div class="input"><span class="label">custom:&nbsp;</span>
+                                <input type="checkbox" name="custom_service" value="true" checked="checked"/>
+                            </div>
+                            <div class="input"><span class="label">Format:&nbsp;</span>
+                                <select name="format">
+                                    <option>new</option>
+                                    <option>old</option>
+                                </select>
+                            </div><br />
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <input id="submit" type="submit" value="Submit"/>
+                    </div>
+                </form>
+
+    <script src="./javascripts/jquery.js"></script>
+    <script src="./javascripts/jquery-ui.min.js"></script>
+    <script src="./javascripts/form.js"></script>
+    </body>
+</html>
