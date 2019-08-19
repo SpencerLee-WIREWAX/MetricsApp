@@ -136,7 +136,7 @@ $(function() {
         setTimeout(function(){
             var getMetrics = $.ajax({
               type: "POST",
-              url: "localhost:9000/custom/service",
+              url: "https://jaffa.wirewax.com/custom/service",
               dataType: "json",
               processData: false,
               contentType: "application/json",
