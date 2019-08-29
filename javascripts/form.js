@@ -27,6 +27,7 @@ $(function() {
     });
 
     $("#theform").on("submit",function(e){
+        $("#loader").css("display","block");
         e.preventDefault();
         var values = $(this).serializeArray();
         var custom = {
@@ -144,11 +145,13 @@ $(function() {
             });
 
             getMetrics.done(function(response) {
+              $("#loader").css("display","none");
               console.log(response);
               download(JSON.stringify(response, null, 4), 'metrics_report.json', 'application/json');
             });
 
             getMetrics.fail(function(jqXHR, textStatus) {
+              $("#loader").css("display","none");
               alert( "Getting metrics failed: " + textStatus );
               console.log(jqXHR);
             });
